@@ -13,6 +13,5 @@ test(`@Smoke2 Verify Login with test Step`, async ({ loginPage, myAccountPage })
         await myAccountPage.verifyURL('https://the-internet.herokuapp.com/secure');
     });
     await test.step(`Close My Account page.`, async () => {
-        await myAccountPage.page.close();
     });
 });

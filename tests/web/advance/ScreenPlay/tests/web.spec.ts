@@ -19,7 +19,6 @@ import { Remove } from '../src/web/actions/Remove';
 import { Element } from '../src/web/questions/Element';
 import { LoginToMyApp } from '../src/web/tasks/LogIn';
 import { Actor } from '../src';
-import { Close } from '../src/web/actions/Close';
 
 type MyActors = {
     actor: Actor;
@@ -37,7 +36,7 @@ const test = base.extend<MyActors>({
 test.afterEach(async ({ actor }) => {
     await actor.attemptsTo(
         // Attempts to do something
-        Close.page()
+
     );
 });
 

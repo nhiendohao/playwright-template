@@ -6,7 +6,6 @@ test('Simple nagivation ', async ({ page }) => {
     await page.goto('http://google.com.vn');
     await page.waitForLoadState('networkidle');
     await expect(page).toHaveTitle("Google");
-    await page.close();
 });
 
 // Example for Web hierarchy
@@ -51,7 +50,6 @@ test('iFrame example', async ({ page }) => {
     await searchResult.waitFor({ state: 'visible' });
 
     await expect(searchResult).toBeVisible();
-    await page.close();
 
 });
 
@@ -66,8 +64,6 @@ test('FilePicker for upload example', async ({ page }) => {
     ]);
 
     await fileChooser.setFiles('resources/couple.jpeg')
-    await page.close();
-
 });
 
 //filePicker - Download
@@ -81,8 +77,6 @@ test('FilePicker for download example', async ({ page }) => {
     ]);
 
     await fileDownload.saveAs('resources/sample_download.jpeg')
-    await page.close();
-
 });
 
 //GeoLocation example
@@ -107,7 +101,6 @@ test('Stimulate GeoLocation', async ({ page }) => {
 
     await expect(geoLatitude).toBeVisible();
     await expect(geoLongtitude).toBeVisible();
-    await page.close();
 
 });
 
@@ -115,7 +108,6 @@ test('Stimulate GeoLocation', async ({ page }) => {
 test.use({ locale: 'ko-KR' });
 test('Stimulate locale', async ({ page }) => {
     await page.goto("https://amazon.com");
-    await page.close();
 });
 
 
@@ -137,7 +129,6 @@ test('Intercept network - mock api response within web application', async ({ pa
     });
     await page.goto("https://kitchen.applitools.com/ingredients/api");
     await page.waitForLoadState('networkidle');
-    await page.close();
 
 })
 
@@ -151,7 +142,6 @@ test('Intercept network - custom api response within web application', async ({ 
     });
     await page.goto("https://kitchen.applitools.com/ingredients/api");
     await page.waitForLoadState("networkidle");
-    await page.close();
 
 });
 
@@ -163,8 +153,6 @@ test.skip('Simple image validation ', async ({ page }) => {
     await expect(logo).toHaveScreenshot('google_logo.png');
     // await expect(logo).toHaveScreenshot('resources-ABC-chromium-darwin.png');
     // await expect(logo).toHaveScreenshot('resources-ABC-chromium-darwin.png',{maxDiffPixelRatio: 0.1});
-    await page.close();
-
 });
 
 

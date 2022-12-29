@@ -14,7 +14,6 @@ test.describe('First example preparing over api', () => {
     test.afterAll(async ({ adminActor }) => {
         await adminActor.attemptsTo(
             // Attempts to do something
-            Close.page()
         );
     });
 
