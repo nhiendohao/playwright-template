@@ -1,12 +1,11 @@
 import test, { chromium, expect } from "@playwright/test";
-import * as CryptoJS from 'crypto-js';
-
 
 // Simple example for web navigaton
 test('Simple nagivation ', async ({ page }) => {
     const logo = page.getByRole('img', { name: 'Google' });
     await page.goto('http://google.com.vn');
-    await expect(logo).toBeVisible();
+    await page.waitForLoadState('networkidle');
+    await expect(page).toHaveTitle("Google");
 });
 
 // Example for Web hierarchy
@@ -147,7 +146,7 @@ test('Intercept network - custom api response within web application', async ({ 
 });
 
 // Image validation example
-test('Simple image validation ', async ({ page }) => {
+test.skip('Simple image validation ', async ({ page }) => {
     const logo = page.getByRole('img', { name: 'Google' });
     await page.goto('http://google.com.vn');
     await expect(logo).toBeVisible();
