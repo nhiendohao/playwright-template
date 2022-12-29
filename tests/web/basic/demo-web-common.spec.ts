@@ -6,12 +6,13 @@ test('Simple nagivation ', async ({ page }) => {
     await page.goto('http://google.com.vn');
     await page.waitForLoadState('networkidle');
     await expect(page).toHaveTitle("Google");
+    await page.close();
 });
 
 // Example for Web hierarchy
 // Browser -> Context -> Page1
 //         -> Context -> Page2
-test('Web hierarchy example', async () => {
+test.skip('Web hierarchy example', async () => {
     const browser = chromium.launch();
     const context = (await browser).newContext();
     const page = (await context).newPage();
@@ -24,7 +25,7 @@ test('Web hierarchy example', async () => {
 
 // Browser -> Context1 -> Page1
 // Browser -> Context2-> Page2
-test('Web hierarchy example - 2', async () => {
+test.skip('Web hierarchy example - 2', async () => {
     const browser = chromium.launch();
     const context = (await browser).newContext();
     const context2 = (await browser).newContext();
@@ -47,9 +48,10 @@ test('iFrame example', async ({ page }) => {
 
 
     const searchResult = page.frameLocator('internal:text="<br />"i').getByRole('heading', { name: 'Search results for: abcd' });
-    await searchResult.waitFor({state:'visible'});
+    await searchResult.waitFor({ state: 'visible' });
 
-    expect(searchResult).toBeVisible();
+    await expect(searchResult).toBeVisible();
+    await page.close();
 
 });
 
@@ -64,6 +66,7 @@ test('FilePicker for upload example', async ({ page }) => {
     ]);
 
     await fileChooser.setFiles('resources/couple.jpeg')
+    await page.close();
 
 });
 
@@ -78,6 +81,7 @@ test('FilePicker for download example', async ({ page }) => {
     ]);
 
     await fileDownload.saveAs('resources/sample_download.jpeg')
+    await page.close();
 
 });
 
@@ -103,6 +107,7 @@ test('Stimulate GeoLocation', async ({ page }) => {
 
     await expect(geoLatitude).toBeVisible();
     await expect(geoLongtitude).toBeVisible();
+    await page.close();
 
 });
 
@@ -110,6 +115,7 @@ test('Stimulate GeoLocation', async ({ page }) => {
 test.use({ locale: 'ko-KR' });
 test('Stimulate locale', async ({ page }) => {
     await page.goto("https://amazon.com");
+    await page.close();
 });
 
 
@@ -131,6 +137,8 @@ test('Intercept network - mock api response within web application', async ({ pa
     });
     await page.goto("https://kitchen.applitools.com/ingredients/api");
     await page.waitForLoadState('networkidle');
+    await page.close();
+
 })
 
 test('Intercept network - custom api response within web application', async ({ page }) => {
@@ -143,6 +151,8 @@ test('Intercept network - custom api response within web application', async ({ 
     });
     await page.goto("https://kitchen.applitools.com/ingredients/api");
     await page.waitForLoadState("networkidle");
+    await page.close();
+
 });
 
 // Image validation example
@@ -153,6 +163,7 @@ test.skip('Simple image validation ', async ({ page }) => {
     await expect(logo).toHaveScreenshot('google_logo.png');
     // await expect(logo).toHaveScreenshot('resources-ABC-chromium-darwin.png');
     // await expect(logo).toHaveScreenshot('resources-ABC-chromium-darwin.png',{maxDiffPixelRatio: 0.1});
+    await page.close();
 
 });
 

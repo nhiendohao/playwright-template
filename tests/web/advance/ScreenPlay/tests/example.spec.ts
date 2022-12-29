@@ -3,6 +3,8 @@ import { test } from '../../ScreenPlay/fixture/actors';
 import { SecureScreen } from '../src/screens/SecureScreen';
 import { LoginToMyApp } from '../src/web/tasks/LogIn';
 import { Element } from '../src/web/questions/Element';
+import { BrowseTheWeb } from '../src/web/abilities/BrowseTheWeb';
+import { Close } from '../src/web/actions/Close';
 
 test.describe('First example preparing over api', () => {
     test.beforeAll(async ({ adminActor }) => {
@@ -12,6 +14,7 @@ test.describe('First example preparing over api', () => {
     test.afterAll(async ({ adminActor }) => {
         await adminActor.attemptsTo(
             // Attempts to do something
+            Close.page()
         );
     });
 

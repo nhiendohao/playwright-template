@@ -1,5 +1,5 @@
 import { Cookie, expect, Page } from '@playwright/test';
-import { Response } from 'playwright';
+import { Response } from '@playwright/test';
 import { Ability, Actor } from '@testla/screenplay';
 import { Selector, SelectorOptions } from '../types';
 import { recursiveLocatorLookup } from '../utils';
@@ -54,6 +54,13 @@ export class BrowseTheWeb extends Ability {
     }
 
     /**
+     * 
+     * @returns Close page
+     */
+    public async close(): Promise<void> {
+        return this.page.close();
+    }
+    /**
      * Wait for the specified loading state.
      *
      * @param status the status to wait for. Allowed: "load" | "domcontentloaded" | "networkidle".
@@ -61,7 +68,6 @@ export class BrowseTheWeb extends Ability {
     public async waitForLoadState(status: 'load' | 'domcontentloaded' | 'networkidle'): Promise<void> {
         return this.page.waitForLoadState(status);
     }
-
     /**
      * Use the page mouse to hover over the specified element.
      *

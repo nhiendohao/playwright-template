@@ -1,4 +1,4 @@
-# Project Introduction:
+# Project Introduction
 
 * Basic use cases with Playwright [here](https://github.com/nhiendohao/playwright-template/tree/master/tests/web/basichttps:/)
 * Advance framework design with:
@@ -8,14 +8,14 @@
   * [Github action](https://github.com/nhiendohao/playwright-template/tree/master/.github/workflows)
   * CircleCI : TBD
 
-# Installation:
+# Installation
 
 * CI/CD : npm ci
 * Local env:
   * `npx playwright install --with-deps` : install playwright with browser
   * `npm install` : install some dependencies in package.json
 
-# Usage:
+# Usage
 
 ## 1. Run Test
 
