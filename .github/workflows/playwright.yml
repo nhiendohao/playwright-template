@@ -25,3 +25,12 @@ jobs:
           name: html-report
           path: html-report/
           retention-days: 30
+      - name: Setup Page
+        uses: action/configure-pages@v2
+      - name: Upload Page artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: html-report/
+      - name: Deploy to Github Page
+        id: deployment
+        uses: actions/deploy-pages@v1
