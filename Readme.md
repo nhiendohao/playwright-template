@@ -8,6 +8,8 @@
   * [Github action](https://github.com/nhiendohao/playwright-template/tree/master/.github/workflows)
   * CircleCI : TBD
 
+[![Playwright Tests](https://github.com/nhiendohao/playwright-template/actions/workflows/playwright.yml/badge.svg)](https://github.com/nhiendohao/playwright-template/actions/workflows/playwright.yml)
+
 # Installation
 
 * CI/CD : npm ci
