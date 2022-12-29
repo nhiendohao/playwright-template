@@ -1,0 +1,4 @@
+{
+    "playwright.logApiCalls": true,
+    "playwright.reuseBrowser": true
+}

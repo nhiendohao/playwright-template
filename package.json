@@ -1,0 +1,20 @@
+{
+  "name": "playwright-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.28.1"
+  },
+  "dependencies": {
+    "@testla/screenplay": "^0.2.0",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^16.0.3",
+    "exceljs": "^4.3.0",
+    "winston": "^3.8.2"
+  }
+}
