@@ -26,7 +26,7 @@ jobs:
           path: html-report/
           retention-days: 30
       - name: Setup Page
-        uses: action/configure-pages@v2
+        uses: actions/configure-pages@v2
       - name: Upload Page artifact
         uses: actions/upload-pages-artifact@v1
         with:
