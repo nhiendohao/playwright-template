@@ -20,12 +20,14 @@ jobs:
           node-version: 16
       - name: Install dependencies
         run: npm ci
+      - name: Install Allure command
+        run: npm i -D allure-commandline
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
         run: npx playwright test
       - name: Generate Allure html-report
-        run: allure generate allure-results -o allure-report --clean  
+        run: allure generate allure-results -o allure-report --clean
       - name: Upload allure report to artifact
         uses: actions/upload-artifact@v3
         if: always()
