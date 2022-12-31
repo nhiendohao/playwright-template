@@ -38,11 +38,11 @@ jobs:
         run: ls ./allure-2.18.1
       - name: Remove /tmp
         run: sudo rm -rf /tmp/*
-      - name: Running chmod -R +x /allure-2.18.1/bin
-        run: chmod -R +x /allure-2.18.1/bin
+      - name: Running chmod -R +x ./allure-2.18.1/bin
+        run: chmod -R +x ./allure-2.18.1/bin
       - name: Set ROOT
         run : ROOT=/app \
-              PATH=$PATH:/allure-2.18.1/bin
+              PATH=$PATH:./allure-2.18.1/bin
       - name: Create ROOT
         run: mkdir -p $ROOT
       - name: Check allure java-version
