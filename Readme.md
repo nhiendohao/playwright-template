@@ -27,6 +27,43 @@
 
 ## 2. Integration
 
+### Allure Report
+
+**Package** :https://www.npmjs.com/package/allure-playwright
+
+**Usage:**
+
+1. Via playwright.config.ts:
+
+```typescript
+{
+  reporter: [['line'], ['allure-playwright']]
+}
+```
+
+
+| Option       | Description                                                                                                                | Default            |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| outputFolder | Path to results folder.                                                                                                    | `./allure-results` |
+| detail       | Hide`pw:api` and `hooks` steps in report. [See below](https://www.npmjs.com/package/allure-playwright#hooks-and-api-calls) | `true`             |
+| suiteTitle   | Use test title instead of`allure.suite()`. [See below](https://www.npmjs.com/package/allure-playwright#suit-title)         | `true`             |
+
+3. Via CLI:
+
+```shell
+npx playwright test --reporter=allure-playwright
+```
+
+Generate Allure Report:
+
+allure generate allure-results -o allure-report --clean
+-> Generate report at folder allure-report base on json reports in allure-results folder
+
+Open Allure Report:
+
+```shell
+allure open allure-report
+```
 ### Slack
 
 * TBD

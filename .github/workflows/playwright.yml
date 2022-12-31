@@ -24,18 +24,21 @@ jobs:
         run: npx playwright install --with-deps
       - name: Run Playwright tests
         run: npx playwright test
-      - uses: actions/upload-artifact@v3
+      - name: Generate Allure html-report
+        run: allure generate allure-results -o allure-report --clean  
+      - name: Upload allure report to artifact
+        uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: html-report
-          path: html-report/
+          name: allure-report
+          path: allure-report/
           retention-days: 30
       - name: Setup Page
         uses: actions/configure-pages@v2
       - name: Upload Page artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: html-report/
+          path: allure-report/
       - name: Deploy to Github Page
         id: deployment
         uses: actions/deploy-pages@v1

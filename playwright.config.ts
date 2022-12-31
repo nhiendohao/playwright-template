@@ -34,7 +34,7 @@ const config: PlaywrightTestConfig = {
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   // reporter: 'html',
-  reporter: [[`./tests/web/advance/CustomReporterConfig.ts`], [`html`, { outputFolder: 'html-report', open: 'never' }], ['junit', { embedAttachmentsAsProperty: 'testrun_evidence', outputFile: 'junit-reports/results.xml' }]],
+  reporter: [[`./tests/web/advance/CustomReporterConfig.ts`], [`html`, { outputFolder: 'html-report', open: 'never' }], ['junit', { embedAttachmentsAsProperty: 'testrun_evidence', outputFile: 'junit-reports/results.xml' }],[`allure-playwright`,{outputFolder:`allure-results`,detail:true,suiteTitle:true}]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
