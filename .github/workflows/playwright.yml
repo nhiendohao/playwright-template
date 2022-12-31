@@ -41,10 +41,13 @@ jobs:
       - name: Running chmod -R +x ./allure-2.18.1/bin
         run: chmod -R +x ./allure-2.18.1/bin
       - name: Set ROOT
-        run : ROOT=/app \
-              PATH=$PATH:/allure-2.18.1/bin
+        run : ROOT=/app
       - name: Create ROOT
-        run: mkdir -p $ROOT
+        run: mkdir -p $ROOT  
+      - name: Get current pwd
+        run: pwd
+      - name: Add PATH
+        run: PATH=$PATH:/allure-2.18.1/bin
       - name: Check allure java-version
         run: allure --version
       - name: Install Playwright Browsers
