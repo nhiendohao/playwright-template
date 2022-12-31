@@ -42,8 +42,8 @@ jobs:
         run: chmod -R +x ./allure-2.18.1/bin
       # - name: Set ROOT
       #   run : ROOT=/app
-      # - name: Create ROOT
-      #   run: mkdir -p $ROOT  
+      - name: Create ROOT
+        run: mkdir -p /app 
       - name: Get current pwd
         run: pwd
       - name: Add PATH
