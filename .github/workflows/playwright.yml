@@ -28,26 +28,34 @@ jobs:
       #   run: apt-get update && apt-get -y install sudo
       - name: Instal unzip
         run: sudo apt install unzip
-      - name: Remove cache 
-        run: sudo rm -rf /var/cache/apk/*
-      - name: Get allure command line
-        run: wget --no-verbose -O /tmp/allure-2.18.1.tgz https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.18.1/allure-commandline-2.18.1.tgz
-      - name: Running /tmp/allure-2.18.1.tgz
-        run: tar -xf /tmp/allure-2.18.1.tgz
-      - name: Check Files
-        run: ls ./allure-2.18.1
-      - name: Remove /tmp
-        run: sudo rm -rf /tmp/*
-      - name: Running chmod -R +x ./allure-2.18.1/bin
-        run: chmod -R +x ./allure-2.18.1/bin
-      # - name: Set ROOT
-      #   run : ROOT=/app
-      - name: Create ROOT
-        run: sudo mkdir -p /app 
-      - name: Get current pwd
-        run: pwd
-      - name: Add PATH
-        run: PATH=$PATH:/allure-2.18.1/bin
+      # - name: Remove cache 
+      #   run: sudo rm -rf /var/cache/apk/*
+      # - name: Get allure command line
+      #   run: wget --no-verbose -O /tmp/allure-2.18.1.tgz https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.18.1/allure-commandline-2.18.1.tgz
+      # - name: Running /tmp/allure-2.18.1.tgz
+      #   run: tar -xf /tmp/allure-2.18.1.tgz
+      # - name: Check Files
+      #   run: ls ./allure-2.18.1
+      # - name: Remove /tmp
+      #   run: sudo rm -rf /tmp/*
+      # - name: Running chmod -R +x ./allure-2.18.1/bin
+      #   run: chmod -R +x ./allure-2.18.1/bin
+      # - name: Create ROOT
+      #   run: sudo mkdir -p /app 
+      # - name: Get current pwd
+      #   run: pwd
+      # - name: Add PATH
+      #   run: PATH=$PATH:/allure-2.18.1/bin
+      # - name: Echo PATH
+      #   run: echo $PATH
+      - name: Allure archive download
+        run: curl -L https://github.com/allure-framework/allure2/releases/download/2.13.1/allure-commandline-2.13.1.zip -o /tmp/allure.zip
+      - name: Unzip archive
+        run: unzip /tmp/allure.zip
+      - name: Install allure
+        run: sudo mv allure-2.13.1 /usr/local/share/allure
+      - name: Allure binary symlinking
+        run: sudo ln -s /usr/local/share/allure/bin/allure /usr/local/bin/allure
       - name: Check allure java-version
         run: allure --version
       - name: Install Playwright Browsers
