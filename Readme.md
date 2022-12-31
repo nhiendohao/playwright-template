@@ -42,11 +42,11 @@
 ```
 
 
-| Option       | Description                                                                                                                | Default            |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| outputFolder | Path to results folder.                                                                                                    | `./allure-results` |
-| detail       | Hide`pw:api` and `hooks` steps in report. [See below](https://www.npmjs.com/package/allure-playwright#hooks-and-api-calls) | `true`             |
-| suiteTitle   | Use test title instead of`allure.suite()`. [See below](https://www.npmjs.com/package/allure-playwright#suit-title)         | `true`             |
+| Option       | Description                                                                                                               | Default            |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| outputFolder | Path to results folder.                                                                                                   | `./allure-results` |
+| detail       | Hide`pw:api` and `hooks` steps in report. [See here](https://www.npmjs.com/package/allure-playwright#hooks-and-api-calls) | `true`             |
+| suiteTitle   | Use test title instead of`allure.suite()`. [See here](https://www.npmjs.com/package/allure-playwright#suit-title)         | `true`             |
 
 3. Via CLI:
 
@@ -74,4 +74,4 @@ Slack
 
 ### Attach report to Github Page
 
-* Checkout Sample Allure report at : https://nhiendohao.github.io/playwright-template/TB
+* Checkout Sample Allure report at : https://nhiendohao.github.io/playwright-template/
