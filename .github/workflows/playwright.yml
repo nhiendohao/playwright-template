@@ -20,34 +20,15 @@ jobs:
           node-version: 16
       - name: Install dependencies
         run: npm ci
+      # Install JDK for Allure Installation
       - name: Set up JDK 1.8
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      # - name: Update apt 
-      #   run: apt-get update && apt-get -y install sudo
+      # Install Unzip for Allure Installation
       - name: Instal unzip
         run: sudo apt install unzip
-      # - name: Remove cache 
-      #   run: sudo rm -rf /var/cache/apk/*
-      # - name: Get allure command line
-      #   run: wget --no-verbose -O /tmp/allure-2.18.1.tgz https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.18.1/allure-commandline-2.18.1.tgz
-      # - name: Running /tmp/allure-2.18.1.tgz
-      #   run: tar -xf /tmp/allure-2.18.1.tgz
-      # - name: Check Files
-      #   run: ls ./allure-2.18.1
-      # - name: Remove /tmp
-      #   run: sudo rm -rf /tmp/*
-      # - name: Running chmod -R +x ./allure-2.18.1/bin
-      #   run: chmod -R +x ./allure-2.18.1/bin
-      # - name: Create ROOT
-      #   run: sudo mkdir -p /app 
-      # - name: Get current pwd
-      #   run: pwd
-      # - name: Add PATH
-      #   run: PATH=$PATH:/allure-2.18.1/bin
-      # - name: Echo PATH
-      #   run: echo $PATH
+      # Download and Install Allure 2.13.1.
       - name: Allure archive download
         run: curl -L https://github.com/allure-framework/allure2/releases/download/2.13.1/allure-commandline-2.13.1.zip -o /tmp/allure.zip
       - name: Unzip archive
@@ -56,14 +37,19 @@ jobs:
         run: sudo mv allure-2.13.1 /usr/local/share/allure
       - name: Allure binary symlinking
         run: sudo ln -s /usr/local/share/allure/bin/allure /usr/local/bin/allure
+      # Log Allure version
       - name: Check allure java-version
         run: allure --version
+      # Install Playwright
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
+      # Running Test
       - name: Run Playwright tests
         run: npx playwright test
+      # Generate Allure html report base on json report in allure-results folder
       - name: Generate Allure html-report
         run: allure generate allure-results -o allure-report --clean
+      # Upload report to artifact
       - name: Upload allure report to artifact
         uses: actions/upload-artifact@v3
         if: always()
@@ -71,6 +57,7 @@ jobs:
           name: allure-report
           path: allure-report/
           retention-days: 30
+      # Setup Github page with html artifacts
       - name: Setup Page
         uses: actions/configure-pages@v2
       - name: Upload Page artifact
