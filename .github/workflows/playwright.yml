@@ -24,8 +24,8 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Update apt 
-        run: apt-get update && apt-get -y install sudo
+      # - name: Update apt 
+      #   run: apt-get update && apt-get -y install sudo
       - name: Instal unzip
         run: sudo apt install unzip
       - name: Remove cache 
