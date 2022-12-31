@@ -1,6 +1,6 @@
 # Project Introduction
 
-* Basic use cases with Playwright [here](https://github.com/nhiendohao/playwright-template/tree/master/tests/web/basichttps:/)
+* Basic use cases with Playwright [here](https://github.com/nhiendohao/playwright-template/tree/master/tests/web/basic)
 * Advance framework design with:
   * [Page Object Repo & Page Factory](https://github.com/nhiendohao/playwright-template/tree/master/tests/web/advance/PageObjectModel)
   * [ScreenPlay](https://github.com/nhiendohao/playwright-template/tree/master/tests/web/advance/ScreenPlay)
@@ -57,14 +57,14 @@ npx playwright test --reporter=allure-playwright
 Generate Allure Report:
 
 allure generate allure-results -o allure-report --clean
--> Generate report at folder allure-report base on json reports in allure-results folder
+* Generate report at folder allure-report base on json reports in allure-results folder
 
 Open Allure Report:
 
 ```shell
 allure open allure-report
 ```
-### Slack
+Slack
 
 * TBD
 
@@ -72,6 +72,6 @@ allure open allure-report
 
 * TBD
 
-### Attach report to Git Page
+### Attach report to Github Page
 
-* TBD
+* Checkout Sample Allure report at : https://nhiendohao.github.io/playwright-template/TB
