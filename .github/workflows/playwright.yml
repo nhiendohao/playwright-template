@@ -34,6 +34,8 @@ jobs:
         run: wget --no-verbose -O /tmp/allure-2.18.1.tgz https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.18.1/allure-commandline-2.18.1.tgz
       - name: Running /tmp/allure-2.18.1.tgz
         run: tar -xf /tmp/allure-2.18.1.tgz
+      - name: Check Files
+        run: ls
       # - name: Remove /tmp
       #   run: sudo rm -rf /tmp/*
       - name: Running chmod -R +x /allure-2.18.1/bin
