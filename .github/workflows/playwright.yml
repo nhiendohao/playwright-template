@@ -35,9 +35,9 @@ jobs:
       - name: Running /tmp/allure-2.18.1.tgz
         run: tar -xf /tmp/allure-2.18.1.tgz
       - name: Check Files
-        run: ls
-      # - name: Remove /tmp
-      #   run: sudo rm -rf /tmp/*
+        run: ls ./allure-2.18.1
+      - name: Remove /tmp
+        run: sudo rm -rf /tmp/*
       - name: Running chmod -R +x /allure-2.18.1/bin
         run: chmod -R +x /allure-2.18.1/bin
       - name: Set ROOT
