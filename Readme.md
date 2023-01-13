@@ -10,30 +10,30 @@
 
 [![Playwright Tests](https://github.com/nhiendohao/playwright-template/actions/workflows/playwright.yml/badge.svg)](https://github.com/nhiendohao/playwright-template/actions/workflows/playwright.yml)
 
-# Installation
+## Installation
 
 * CI/CD : npm ci
 * Local env:
   * `npx playwright install --with-deps` : install playwright with browser
   * `npm install` : install some dependencies in package.json
 
-# Usage
+## Usage
 
-## 1. Run Test
+### 1. Run Test
 
 * Run all tests with all Projects: `npx playwright test`
 * Run test by Project name:`npx playwright test --project=pom`, `npx playwright test --project=screenplay`
 * Run test by Environment name: `TEST_ENV=alpha npx playwright test`
 
-## 2. Integration
+### 2. Integration
 
-### Allure Report
+#### Allure Report
 
-**Package** :https://www.npmjs.com/package/allure-playwright
+**Package** :[https://www.npmjs.com/package/allure-playwright](https://www.npmjs.com/package/allure-playwright)
 
 **Usage:**
 
-1. Via playwright.config.ts:
+* Via playwright.config.ts:
 
 ```typescript
 {
@@ -41,14 +41,13 @@
 }
 ```
 
-
 | Option       | Description                                                                                                               | Default            |
 | -------------- | --------------------------------------------------------------------------------------------------------------------------- | -------------------- |
 | outputFolder | Path to results folder.                                                                                                   | `./allure-results` |
 | detail       | Hide`pw:api` and `hooks` steps in report. [See here](https://www.npmjs.com/package/allure-playwright#hooks-and-api-calls) | `true`             |
 | suiteTitle   | Use test title instead of`allure.suite()`. [See here](https://www.npmjs.com/package/allure-playwright#suit-title)         | `true`             |
 
-3. Via CLI:
+* Via CLI:
 
 ```shell
 npx playwright test --reporter=allure-playwright
@@ -56,7 +55,8 @@ npx playwright test --reporter=allure-playwright
 
 Generate Allure Report:
 
-allure generate allure-results -o allure-report --clean
+`allure generate allure-results -o allure-report --clean`
+
 * Generate report at folder allure-report base on json reports in allure-results folder
 
 Open Allure Report:
@@ -64,14 +64,15 @@ Open Allure Report:
 ```shell
 allure open allure-report
 ```
-Slack
+
+#### Slack
 
 * TBD
 
-### TestRail Reporters
+#### TestRail Reporters
 
-* TBD
+* Follow `custom/junit-testrail-reporter/README.md` for instruction
 
-### Attach report to Github Page
+#### Attach report to Github Page
 
-* Checkout Sample Allure report at : https://nhiendohao.github.io/playwright-template/
+* Checkout Sample Allure report at : [https://nhiendohao.github.io/playwright-template/](https://nhiendohao.github.io/playwright-template/)

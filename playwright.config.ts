@@ -34,7 +34,11 @@ const config: PlaywrightTestConfig = {
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   // reporter: 'html',
-  reporter: [[`./tests/web/advance/CustomReporterConfig.ts`], [`html`, { outputFolder: 'html-report', open: 'never' }], ['junit', { embedAttachmentsAsProperty: 'testrun_evidence', outputFile: 'junit-reports/results.xml' }],[`allure-playwright`,{outputFolder:`allure-results`,detail:true,suiteTitle:true}]],
+  // reporter: [[`./tests/web/advance/testrail-reporter/testrail-reporter.ts`]],
+  // reporter: [[`./tests/web/advance/CustomReporterConfig.ts`], [`html`, { outputFolder: 'html-report', open: 'never' }], ['junit', { embedAttachmentsAsProperty: 'testrun_evidence', outputFile: 'junit-reports/results.xml' }],[`allure-playwright`,{outputFolder:`allure-results`,detail:true,suiteTitle:true}]],
+  reporter: [
+    ['junit', { outputFile: 'test-results/junit_report.xml' }],
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
@@ -78,6 +82,7 @@ const config: PlaywrightTestConfig = {
       use: {
         ...devices['Desktop Chrome'],
         screenshot: 'on',
+        headless: false
 
       },
     },
