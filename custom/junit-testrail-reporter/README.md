@@ -27,13 +27,13 @@ Add the test suite and case identifier in the title of your test:
 ```js
   ...
 
-  it('S123456 C123456 given some scenario when an action is taken then something is true', () => {})
+  it('C123456 given some scenario when an action is taken then something is true', () => {})
 
   // multiple test cases are supported as well
-  test('S123456 C654321 C654321 C678901 given some scenario when an action is taken then something is true', () => {})
+  test('C654321 C654321 C678901 given some scenario when an action is taken then something is true', () => {})
 
   // so are multiple test suites
-  test('S123456 C123456 S654321 C654321 C678901 given some scenario when an action is taken then something is true', () => {})
+  test('C123456 S654321 C654321 C678901 given some scenario when an action is taken then something is true', () => {})
 
   ...
 ```

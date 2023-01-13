@@ -8,7 +8,7 @@ import test from '../../lib/BaseTest';
 
 */
 // test.use({ storageState: "cookies.json" })
-test(`C1 Login to Heroku app.`, async ({ loginPage, myAccountPage }) => {
+test(`C1 C2 C4 C5 Login to Heroku app.`, async ({ loginPage, myAccountPage }) => {
     await loginPage.navigateToURL();
     await loginPage.loginToApplication();
     await myAccountPage.verifyURL('https://the-internet.herokuapp.com/secure');

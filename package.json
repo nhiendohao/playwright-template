@@ -15,11 +15,12 @@
   "dependencies": {
     "@dlenroc/testrail": "^1.7.2",
     "@testla/screenplay": "^0.2.0",
+    "command-line-args": "^5.2.1",
     "crypto-js": "^4.1.1",
     "dotenv": "^16.0.3",
     "exceljs": "^4.3.0",
-    "winston": "^3.8.2",
     "junit-testrail-reporter": "file:custom/junit-testrail-reporter",
-    "command-line-args": "^5.2.1"
+    "moment": "^2.29.4",
+    "winston": "^3.8.2"
   }
 }
