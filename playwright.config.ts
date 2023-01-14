@@ -82,7 +82,7 @@ const config: PlaywrightTestConfig = {
       use: {
         ...devices['Desktop Chrome'],
         screenshot: 'on',
-        headless: false
+        headless: true
 
       },
     },
