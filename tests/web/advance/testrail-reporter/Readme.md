@@ -19,10 +19,6 @@ Add the test suite and case identifier in the title of your test:
 
   // multiple test cases are supported as well
   test('C654321 C654321 C678901 given some scenario when an action is taken then something is true', () => {})
-
-  // so are multiple test suites
-  test('C123456 S654321 C654321 C678901 given some scenario when an action is taken then something is true', () => {})
-
   ...
 ```
 
