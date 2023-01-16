@@ -48,7 +48,6 @@ Refer to .env.local for simple setup
 
 ## Configuration
 
-
 | Environment Variable | Description                                                    | Required | Default                                                             |
 | ---------------------- | ---------------------------------------------------------------- | ---------- | --------------------------------------------------------------------- |
 | `TR_HOST_NAME`       | The host of the TestRail server to send results to.            | ✔️     | -                                                                   |

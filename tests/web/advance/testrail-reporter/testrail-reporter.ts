@@ -1,7 +1,6 @@
-import TestRail, { Result } from "@dlenroc/testrail";
+import TestRail from "@dlenroc/testrail";
 import { FullConfig, FullResult, Reporter, Suite, TestCase, TestError, TestResult } from "@playwright/test/reporter";
 import moment from "moment";
-import { exitOnError } from "winston";
 const winston = require(`winston`);
 
 
@@ -34,16 +33,16 @@ const StatusMap = new Map<string, number>([
 let executionDateTime = moment().format('MMM Do YYYY, HH:mm (Z)');
 
 const api = new TestRail({
-    host: process.env.TR_HOST_NAME,
-    password: process.env.TR_PASSWORD,
-    username: process.env.TR_USERNAME,
+    host: process.env.TR_HOST_NAME as string,
+    password: process.env.TR_PASSWORD as string,
+    username: process.env.TR_USERNAME as string
 });
 
 const runName = process.env.TR_RUN_NAME + ' ' + executionDateTime;
-const projectId = parseInt(process.env.TR_PROJECT_ID);
-const suiteId = parseInt(process.env.TR_SUITE_ID);
+const projectId = parseInt(process.env.TR_PROJECT_ID as string);
+const suiteId = parseInt(process.env.TR_SUITE_ID as string);
 
-const testResults = [];
+const testResults: any[] = [];
 
 
 // Writes logs to console
@@ -92,7 +91,7 @@ export default class CustomReporterConfig implements Reporter {
     }
 
     async onEnd(result: FullResult): Promise<void> {
-        let runId = parseInt(process.env.TR_RUN_ID);
+        let runId = parseInt(process.env.TR_RUN_ID as string);
         logger.info('Update test status for test run id ' + runId);
 
         for (let index = 0; index < testResults.length; index++) {
