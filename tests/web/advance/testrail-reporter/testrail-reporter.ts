@@ -1,5 +1,4 @@
 import TestRail, { AddResultsForCases } from "@dlenroc/testrail";
-import { AndroidKey } from "@playwright/test";
 import { FullConfig, FullResult, Reporter, Suite, TestCase, TestError, TestResult } from "@playwright/test/reporter";
 import moment from "moment";
 const winston = require(`winston`);
