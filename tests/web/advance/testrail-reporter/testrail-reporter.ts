@@ -1,4 +1,5 @@
-import TestRail from "@dlenroc/testrail";
+import TestRail, { AddResultsForCases } from "@dlenroc/testrail";
+import { AndroidKey } from "@playwright/test";
 import { FullConfig, FullResult, Reporter, Suite, TestCase, TestError, TestResult } from "@playwright/test/reporter";
 import moment from "moment";
 const winston = require(`winston`);
@@ -42,13 +43,11 @@ const runName = process.env.TR_RUN_NAME + ' ' + executionDateTime;
 const projectId = parseInt(process.env.TR_PROJECT_ID as string);
 const suiteId = parseInt(process.env.TR_SUITE_ID as string);
 
-const testResults: any[] = [];
+const testResults: AddResultsForCases[] = [];
 
 
 // Writes logs to console
 logger.add(console);
-
-
 
 export default class CustomReporterConfig implements Reporter {
 
@@ -79,12 +78,11 @@ export default class CustomReporterConfig implements Reporter {
                 if (result.status != 'skipped') {
                     let testComment = setTestComment(result);
                     let myPayload = {
-                        caseId: testId,
-                        status: StatusMap.get(result.status),
+                        case_id: testId,
+                        status_id: StatusMap.get(result.status),
                         comment: testComment
                     }
                     testResults.push(myPayload);
-
                 }
             });
         }
@@ -92,12 +90,8 @@ export default class CustomReporterConfig implements Reporter {
 
     async onEnd(result: FullResult): Promise<void> {
         let runId = parseInt(process.env.TR_RUN_ID as string);
-        logger.info('Update test status for test run id ' + runId);
-
-        for (let index = 0; index < testResults.length; index++) {
-            await addResultForSuite(api, runId, testResults[index].caseId, testResults[index].status, testResults[index].comment);
-        }
-
+        logger.info('Updating test status for test run id ' + runId);
+        await updateResultCases(runId, testResults);
     }
     onError(error: TestError): void {
         logger.error(error.message);
@@ -167,4 +161,22 @@ function setTestComment(result: TestResult) {
     else {
         return "Test Passed within " + result.duration + ' ms';
     }
+}
+
+/**
+ * Update TestResult for multiple cases
+ * @param api 
+ * @param runId 
+ * @param payload 
+ */
+async function updateResultCases(runId: number, payload: any) {
+    await api.addResultsForCases(runId, {
+        results: payload,
+    }).then(
+        (result) => {
+            logger.info('Finish update test result for runId ' + runId);
+        },
+        (reason) => {
+            logger.info('Failed to update result ' + JSON.stringify(reason));
+        })
 }

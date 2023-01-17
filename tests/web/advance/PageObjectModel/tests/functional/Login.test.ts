@@ -1,3 +1,4 @@
+import { expect } from '@playwright/test';
 import test from '../../lib/BaseTest';
 
 /* 
@@ -24,6 +25,18 @@ test(`C3 Login to Heroku app.`, async ({ loginPage, myAccountPage }) => {
     await myAccountPage.verifyURL('https://the-internet.herokuapp.com/secure');
     await myAccountPage.page.context().storageState({path:"cookies.json"});
     await myAccountPage.verifyURL("https://the-internet.herokuapp.com/secure");
+    // await loginPage.page.goto("https://the-internet.herokuapp.com/secure")
+    // await myAccountPage.verifyURL("https://the-internet.herokuapp.com/secure");
+
+});
+
+test(`C6 Login to Heroku app.`, async ({ loginPage, myAccountPage }) => {
+    await loginPage.navigateToURL();
+    await loginPage.loginToApplication();
+    await myAccountPage.verifyURL('https://the-internet.herokuapp.com/secure');
+    await myAccountPage.page.context().storageState({path:"cookies.json"});
+    await myAccountPage.verifyURL("https://the-internet.herokuapp.com/secure");
+    await expect(true).toBe(false);
     // await loginPage.page.goto("https://the-internet.herokuapp.com/secure")
     // await myAccountPage.verifyURL("https://the-internet.herokuapp.com/secure");
 
