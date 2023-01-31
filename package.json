@@ -21,6 +21,7 @@
     "exceljs": "^4.3.0",
     "junit-testrail-reporter": "file:custom/junit-testrail-reporter",
     "moment": "^2.29.4",
+    "simple-git": "^3.16.0",
     "winston": "^3.8.2"
   }
 }

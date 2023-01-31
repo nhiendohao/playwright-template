@@ -94,6 +94,14 @@ const config: PlaywrightTestConfig = {
         screenshot: 'on',
       },
     },
+    {
+      name: 'gitcommand',
+      testDir: 'tests/web/advance/git',
+      use: {
+        ...devices['Desktop Chrome'],
+        screenshot: 'on',
+      },
+    },
     /* Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',
