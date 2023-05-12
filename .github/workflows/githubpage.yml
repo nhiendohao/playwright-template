@@ -2,7 +2,7 @@ name: ci
 on:
   push:
     branches:
-     - mdoc
+     - gh-pages
 permissions:
   contents: write
   pages: write
