@@ -74,7 +74,7 @@ extra:
       make our documentation better.
   analytics:
     provider: google
-    property: G-VPLJJL9G2P
+    property: G-WEYNXV0509
     feedback:
       title: Was this page helpful?
       ratings:
