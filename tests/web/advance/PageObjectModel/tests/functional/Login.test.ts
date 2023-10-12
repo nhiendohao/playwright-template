@@ -34,6 +34,4 @@ test(`C6 Login to Heroku app.`, async ({ loginPage, myAccountPage }) => {
     await myAccountPage.verifyURL('https://the-internet.herokuapp.com/secure');
     await myAccountPage.page.context().storageState({ path: "cookies.json" });
     await myAccountPage.verifyURL("https://the-internet.herokuapp.com/secure");
-    expect(true).toBe(false);
-
 });

@@ -8,7 +8,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.29.1",
+    "@playwright/test": "^1.38.1",
     "allure-commandline": "^2.20.1",
     "allure-playwright": "^2.0.0-beta.23"
   },
@@ -19,9 +19,11 @@
     "crypto-js": "^4.1.1",
     "dotenv": "^16.0.3",
     "exceljs": "^4.3.0",
-    "junit-testrail-reporter": "file:custom/junit-testrail-reporter",
     "moment": "^2.29.4",
+    "playwright": "^1.38.1",
+    "semver": "^7.5.2",
     "simple-git": "^3.16.0",
-    "winston": "^3.8.2"
+    "winston": "^3.8.2",
+    "xml2js": "^0.6.2"
   }
 }
